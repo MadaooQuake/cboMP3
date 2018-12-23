@@ -12,7 +12,7 @@ setup(
     description = ("Change bitrate in mp3 file"),
     license = "MIT",
     keywords = "mp3 bitratw converter",
-    packages = ['pymedia'],
+    packages = ['pydub'],
     classifiers=[
         "Development:w"
         "Status :: 1.0.0dev1",
