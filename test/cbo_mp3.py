@@ -11,6 +11,11 @@ class CBOMp3(unittest.TestCase):
     def test_2_convert_files(self):
         self.assertEquals(1, 2)
 
+    def test_3_create_dst_location(self):
+        self.assertEquals(1, 2)
+
+    def test_4_create_tmp_dir(self):
+        self.assertEquals(1, 2)
 
 if __name__ == '__main__':
     unittest.main()
