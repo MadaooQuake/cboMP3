@@ -7,7 +7,7 @@ from mutagen.mp3 import MP3
 class CBOMp3:
 
     @staticmethod
-    def get_mp3_files(dir_path):
+    def get_mp3_files(dir_path=""):
         """
         Scan selected directory for search all mp3 files
         dir_path: path for selected directory
