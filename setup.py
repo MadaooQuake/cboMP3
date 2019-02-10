@@ -18,5 +18,5 @@ setup(
         "Status :: 1.0.0dev1",
         "Topic ::  app",
         "License :: OSI Approved :: BSD License",
-    ],
+    ], install_requires=['ffmpy', 'mutagen', 'numpy']
 )
