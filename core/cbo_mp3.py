@@ -39,7 +39,7 @@ class CBOMp3:
             dst_mp3 = self.create_dst_location(mp3_file)
             ff = ffmpy.FFmpeg(
                 inputs={mp3_file: None},
-                outputs={dst_mp3: '-acodec libmp3lame -ab 128k'}
+                outputs={dst_mp3: '-acodec libmp3lame -b 256k'}
             )
             try:
                 ff.run()
