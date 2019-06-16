@@ -23,10 +23,10 @@ class CBOMp3:
         """
         for mp3_file in mp3_files:
             audio = MP3(mp3_file)
-            if audio.info.bitrate > 128000:
-                print('File to convert: {}'.format(mp3_file))
+            if audio.info.bitrate > 256000:
+               print('File to convert: {}'.format(mp3_file))
             else:
-                mp3_files.remove(mp3_file)
+               mp3_files.remove(mp3_file)
         return mp3_files
 
     def convert_files(self, mp3_files):
@@ -39,7 +39,7 @@ class CBOMp3:
             dst_mp3 = self.create_dst_location(mp3_file)
             ff = ffmpy.FFmpeg(
                 inputs={mp3_file: None},
-                outputs={dst_mp3: '-acodec libmp3lame -b 256k'}
+                outputs={dst_mp3: '-acodec libmp3lame -b:a 256k'}
             )
             try:
                 ff.run()
