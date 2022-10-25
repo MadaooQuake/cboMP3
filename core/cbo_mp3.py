@@ -86,6 +86,6 @@ if __name__ == "__main__":
         mp3_files = [sys.argv[1]]
     else:
         # Hard code your recursive path to mp3 files
-        mp3_files = cbo.get_mp3_files('J:\\ah.fm\\2006\\Aug\\tmp\\')
+        mp3_files = cbo.get_mp3_files('J:\\myLargeMp3sIwantToSaveOnDiskSpace\\')
     mp3_files = cbo.check_file_to_convert(mp3_files)
     cbo.convert_files(mp3_files)
