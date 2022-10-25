@@ -2,7 +2,7 @@ import glob
 import ffmpy
 import os
 from mutagen.mp3 import MP3
-
+import shutil
 
 class CBOMp3:
 
@@ -23,7 +23,7 @@ class CBOMp3:
         """
         for mp3_file in mp3_files:
             audio = MP3(mp3_file)
-            if audio.info.bitrate > 256000:
+            if audio.info.bitrate > 128000:
                print('File to convert: {}'.format(mp3_file))
             else:
                mp3_files.remove(mp3_file)
@@ -39,12 +39,19 @@ class CBOMp3:
             dst_mp3 = self.create_dst_location(mp3_file)
             ff = ffmpy.FFmpeg(
                 inputs={mp3_file: None},
-                outputs={dst_mp3: '-acodec libmp3lame -b:a 256k'}
+                outputs={dst_mp3: '-acodec libmp3lame -b:a 128k'}
             )
             try:
                 ff.run()
+                print('File {} enocoded.'.format(dst_mp3))
+                shutil.copyfile(dst_mp3, mp3_file)
+                print('File {} copied.'.format(mp3_file))
+                os.remove(dst_mp3)
+                print('tmp file {} deleted.'.format(dst_mp3))
             except ffmpy.FFRuntimeError:
                 print('File {} already exists.'.format(dst_mp3))
+            except Exception as e:
+                print('Exception generic on ' + mp3_file, type(e), e)
 
     def create_dst_location(self, mp3_file):
         """
