@@ -29,7 +29,7 @@ class CBOMp3:
         """
         for mp3_file in mp3_files:
             audio = MP3(mp3_file)
-            if audio.info.bitrate > (self.bitrate * 1024):
+            if audio.info.bitrate > (self.bitrate * 1000):
                 print('File to convert: {}'.format(mp3_file))
             else:
                 mp3_files.remove(mp3_file)
